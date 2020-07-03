@@ -26,6 +26,7 @@ div.Navbar-logo{
 .Navbar-menu-item {
     color: rgba(50, 100, 150, 1);
     list-style: none;
+    cursor: pointer;
 }
 
 .Navbar-avatar {
