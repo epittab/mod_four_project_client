@@ -1,3 +1,39 @@
+
+
+Front End Heirarchy
+
+App
+|- Navbar
+|- LoginContainer
+    |-Login
+    |-Register
+|- Home
+    |- VideoComponent (p)
+    |- Message/Text Component Marketing (p)
+|- Account/User
+    |- UserInfoContainer(c)
+        |- UserInfo(p)
+        |- UserAccount(p)
+            |- UserEdit(p)
+|- Search
+    |- SearchContainer (c)
+        |-SearchForm (p)
+        |-SearchResults (p)
+|- Research
+    |- SavedResearch (p) ...
+        |-ResearchDetailContainer(c)
+            |- ResearchDetailHeader(p)
+            |- ReserachDetail(p) (Table and Graphs)
+                |-JobListingDetail(p)
+    |- SavedResearch (p) ...
+    |- SavedResearch (p) ...
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

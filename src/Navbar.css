@@ -4,9 +4,8 @@ div.Navbar{
     justify-content: space-between;
     align-items: center;
 
-    background-color: rgba(250, 250, 250, .4);
-    backdrop-filter: blur(.7rem);
-
+    background-color: rgba(250, 250, 250, .25);
+    backdrop-filter: blur(.3rem);
 
 }
 
