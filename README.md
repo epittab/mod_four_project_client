@@ -3,11 +3,11 @@
 Front End Heirarchy
 
 App
-|- Navbar
-|- LoginContainer
+|- Navbar almost done
+|- LoginContainer almost done
     |-Login
     |-Register
-|- Home
+|- Home 
     |- VideoComponent (p)
     |- Message/Text Component Marketing (p)
 |- Account/User

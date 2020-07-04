@@ -3,8 +3,8 @@ import React from 'react';
 import './App.css';
 
 import Navbar from './Navbar'
-import LoginContainer from './LoginContainer'
-import Test from './Test'
+import LoginContainer from './Login/LoginContainer'
+import Home from './Home/Home'
 
 function App() {
   let token = localStorage.getItem('token')
@@ -13,12 +13,9 @@ function App() {
       <Navbar />
       {
         token ?
-        < Test />
-
+        < Home />
         // add all the components that we want to see when 
         // logged in
-        
-        
         :
       <LoginContainer />
       }
