@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
+import logo from './JobTestr.png'
+
 import './Navbar.css'
 
 class Navbar extends React.Component {
@@ -9,7 +11,7 @@ class Navbar extends React.Component {
         return(
             <div className ='Navbar'>
                 <div className='Navbar-logo'>
-                    <Link to='/'>LOGO</Link>
+                    <Link to='/'><img style={{height: '3rem', width: '3rem'}} src={logo} alt='logo'/></Link>
                 </div>
                 <ul className='Navbar-menu'>
                     <li className='Navbar-menu-item'><Link to='/research'>Research</Link></li>
