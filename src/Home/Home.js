@@ -1,5 +1,6 @@
 import React from 'react'
-
+import HomeText from './HomeText'
+import VideoContainer from './VideoContainer'
 
 class Home extends React.Component {
 
@@ -7,6 +8,7 @@ class Home extends React.Component {
         return(
             <div>
                 Home
+                <VideoContainer />
             </div>
         )
     }
