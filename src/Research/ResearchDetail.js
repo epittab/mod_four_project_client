@@ -1,4 +1,5 @@
 import React from 'react'
+
 import JobListingDetail from './JobListingDetail'
 
 class ResearchDetail extends React.Component {

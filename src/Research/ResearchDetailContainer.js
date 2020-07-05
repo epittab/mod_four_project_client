@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ResearchDetail from './ResearchDetail'
 import ResearchDetailHeader from './ResearchDetailHeader'
 

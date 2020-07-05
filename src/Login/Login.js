@@ -19,6 +19,10 @@ class Login extends React.Component {
                         onChange={this.props.handleChange}/>
                     </label>
                     <button className='login-submit-btn' type='submit'>Login</button>
+                        Not registerd?  
+                        {/* render Register Component? */}
+                    <button className='login-submit-btn' >Sign up</button>    
+                    
                 </form>
             </div>
         )
