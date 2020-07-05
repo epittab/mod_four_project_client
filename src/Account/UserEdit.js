@@ -5,7 +5,10 @@ class UserEdit extends Component {
     render(){
         return(
             <div>
-                UserEdit
+                <h1>Your Account</h1>
+                <form>
+                    
+                </form>
             </div>
         )
     }

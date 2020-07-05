@@ -2,7 +2,7 @@ import React from 'react'
 
 import UserEdit from './UserEdit'
 
-class Account extends React.Component {
+class UserAccount extends React.Component {
     render(){
         return(
             <div>
@@ -12,4 +12,4 @@ class Account extends React.Component {
     }
 }
 
-export default Account;
+export default UserAccount;

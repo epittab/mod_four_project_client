@@ -6,7 +6,7 @@ import './App.css';
 import Navbar from './Navbar'
 import LoginContainer from './Login/LoginContainer'
 import Home from './Home/Home'
-import Account from './Account/UserAccount'
+import UserInfoContainer from './Account/UserInfoContainer'
 import Search from './Search/SearchContainer'
 import Research from './Research/ResearchDetailContainer'
 
@@ -22,7 +22,7 @@ function App() {
             < Home />
           </Route>
           <Route exact path='/user'>
-            < Account />
+            < UserInfoContainer />
           </Route>
           <Route exact path='/search'>
             < Search />

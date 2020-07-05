@@ -8,7 +8,7 @@ App
     |-Login
     |-Register
 |- Home 
-    |- VideoComponent (p)
+    |- VideoComponent (p) almost done...
     |- Message/Text Component Marketing (p)
 |- Account/User
     |- UserInfoContainer(c)
