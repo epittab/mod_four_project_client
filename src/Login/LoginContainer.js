@@ -79,14 +79,13 @@ class LoginContainer extends React.Component {
 
 
     render() {
-        let loggedIn = localStorage.getItem('token')
         return(
             <div className='LoginContainer'>
                     <div className='login-toggle-bar'>
                         <div className='login-tab' onClick={this.toggleForm}>Register</div>
                         <div className='login-tab' onClick={this.toggleForm}>Login</div>
                     </div>
-                {/* if loggedIn == true  */}
+            
                 { this.state.showingRegister ? < Register handleChange={this.handleChange} 
                             handleSubmit={this.handleSubmit}
                             form={this.state.form}/> 

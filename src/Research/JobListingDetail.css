@@ -1,0 +1,11 @@
+div.JobListingDetail {
+    height: 4rem;
+    width: 80vw;
+
+    border-radius: 8px;
+
+    background-color: rgba(250, 250, 250, .3);
+    backdrop-filter: blur(.3rem);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
