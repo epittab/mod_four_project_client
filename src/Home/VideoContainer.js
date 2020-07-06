@@ -1,6 +1,7 @@
 import React from 'react'
 
 import YouTube from 'react-youtube'
+import ReactPlayer from "react-player"
 
 //reference from below
 //https://www.npmjs.com/package/react-youtube
@@ -17,7 +18,10 @@ class VideoContainer extends React.Component {
             };
 
         return (
-        <YouTube videoID="Cj7CBPui5XY" opts={opts} onReady={this._onReady} />
+        // <YouTube videoID="Cj7CBPui5XY" opts={opts} onReady={this._onReady} />
+        <ReactPlayer
+        url="https://www.youtube.com/watch?v=SUMWVZdYHNw"
+      />
        )}
 
     _onReady(event) {
