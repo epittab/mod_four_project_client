@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
+import './SearchContainer.css'
 
 class SearchContainer extends React.Component {
     constructor(){
@@ -69,7 +70,7 @@ class SearchContainer extends React.Component {
     
     render(){
         return(
-            <div>
+            <div className="searchContainer">
                 <SearchForm handleChange={this.handleChange} 
                     handleSubmit={this.handleSubmit}
                     queryDetails={this.state.queryDetails}/>
