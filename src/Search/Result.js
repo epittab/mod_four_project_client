@@ -12,7 +12,7 @@ class Result extends React.Component {
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify(this.props.result)
+            body: JSON.stringify({listing: this.props.result})
         })
         .then( r => r.json())
         .then(data => {
