@@ -68,7 +68,10 @@ class LoginContainer extends React.Component {
             this.setState({form: {}})
             // ok thanks for the data, what is this data, part of it is the token. 
             // store the token locally on the user's (customer/client) browser
-            localStorage.setItem('token', data.token)
+            if (data.token) {
+                localStorage.setItem('token', data.token)
+                return data.status
+            }
             return console.log(data)
         })
     }

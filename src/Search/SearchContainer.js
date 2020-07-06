@@ -7,19 +7,57 @@ class SearchContainer extends React.Component {
         super()
         this.state = {
             queryDetails: {
-                query: "javascript%20developer",
-                minSalary: "30000",
+                query: "",
+                minSalary: "",
+                distance: "",
+                where: "", 
+               
+            },
+            staticDetails: {
                 resultsCount: "100",
-                where: "20001", 
                 sortBy: "salary",
                 country: 'us'
+            },
+            apiDetails: {
+
             },
             results: []
         }
     }
 
-    componentDidMount() {
-        fetch(`https://api.adzuna.com/v1/api/jobs/${this.state.queryDetails.country}/search/1?app_id={Your_app_id}&app_key={Your_app_key}&results_per_page=${this.state.queryDetails.resultsCount}&what=${this.state.queryDetails.query}&where=${this.state.queryDetails.where}&distance=80&sort_by=${this.state.queryDetails.sortBy}&full_time=1`, {
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.getSearchResults()
+        console.log('submit')
+    }
+  
+    handleChange = (e) => {
+        let newQuery = this.state.queryDetails
+        newQuery[e.target.name] = e.target.value
+        this.setState({queryDetails: newQuery})
+        
+    }
+
+    componentDidMount(){
+        //api key and id
+        fetch(`http://localhost:3001/search`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then( r => r.json())
+        .then(data => {
+            this.setState({apiDetails: data.api_data})
+            console.log(data)
+        })
+    }
+
+
+    getSearchResults() {
+        fetch(`https://api.adzuna.com/v1/api/jobs/${this.state.staticDetails.country}/search/3?app_id=${this.state.apiDetails.id}&app_key=${this.state.apiDetails.key}&results_per_page=${this.state.staticDetails.resultsCount}&what=${this.state.queryDetails.query}&where=${this.state.queryDetails.where}&distance=${this.state.queryDetails.distance}&sort_by=${this.state.staticDetails.sortBy}&full_time=1`, {
             method: 'GET'
         })
         .then( r => r.json() )
@@ -32,7 +70,9 @@ class SearchContainer extends React.Component {
     render(){
         return(
             <div>
-                <SearchForm />
+                <SearchForm handleChange={this.handleChange} 
+                    handleSubmit={this.handleSubmit}
+                    queryDetails={this.state.queryDetails}/>
                 <SearchResults results={this.state.results}/>
             </div>
         )
