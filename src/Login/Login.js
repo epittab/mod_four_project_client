@@ -7,6 +7,9 @@ class Login extends React.Component {
     render(){
         return(
             <div>
+                <div>
+                    Login
+                </div>
                 <form className='Login-form' onSubmit={this.props.handleSubmit}>
                     <label> Username:
                         <input type='text' name='username' 

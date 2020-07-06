@@ -30,6 +30,11 @@ function App() {
           <Route exact path='/research'>
             < Research />
           </Route>
+          <Route path='/'>
+            <div>
+                404: Page not found 
+            </div>
+          </Route>
         </ Switch >
         // add all the components that we want to see when 
         // logged in

@@ -6,6 +6,9 @@ class Register extends React.Component {
     render() {
         return (
             <div className='Register'>
+                <div>
+                    Register
+                </div>
                 <form className='Login-form' onSubmit={this.props.handleSubmit}>
                     <label> First Name: 
                         <input type='text' name='first_name' 

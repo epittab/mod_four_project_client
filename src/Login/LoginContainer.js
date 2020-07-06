@@ -10,8 +10,13 @@ class LoginContainer extends React.Component {
     constructor(){
         super()
         this.state ={
-            form: {}
+            form: {},
+            showingRegister: false,
         }
+    }
+
+    toggleForm = () => {
+        this.setState({showingRegister: !this.state.showingRegister})
     }
 
     handleChange = (e) => {
@@ -38,6 +43,7 @@ class LoginContainer extends React.Component {
         })
         .then(r => r.json())
         .then(data => {
+           
             this.setState({form: {}})
             localStorage.setItem('token', data.token)
             return console.log(data)
@@ -73,8 +79,12 @@ class LoginContainer extends React.Component {
         let loggedIn = localStorage.getItem('token')
         return(
             <div className='LoginContainer'>
+                    <div className='login-toggle-bar'>
+                        <div className='login-tab' onClick={this.toggleForm}>Register</div>
+                        <div className='login-tab' onClick={this.toggleForm}>Login</div>
+                    </div>
                 {/* if loggedIn == true  */}
-                { loggedIn ? < Register handleChange={this.handleChange} 
+                { this.state.showingRegister ? < Register handleChange={this.handleChange} 
                             handleSubmit={this.handleSubmit}
                             form={this.state.form}/> 
                         : < Login handleChange={this.handleChange} 

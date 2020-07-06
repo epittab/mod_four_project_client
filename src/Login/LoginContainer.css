@@ -29,3 +29,22 @@ button.login-submit-btn{
     font-weight: bold;
     width: 100px;
 }
+
+div.login-toggle-bar {
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    height: 2rem;
+
+}
+
+div.login-tab {
+    width: 50%;
+    cursor: pointer;
+    line-height: 2rem;
+}
+
+div.login-tab:hover {
+    color: blue;
+
+}
