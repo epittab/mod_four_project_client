@@ -1,12 +1,61 @@
 import React, { Component } from 'react'
 
 class UserInfo extends Component {
-    render(){
+
+    constructor() {
+        super()
+        this.state = {
+            tags: [],
+            value: "",
+        }
+    }
+
+    // componentDidMount() {
+    //     fetch("")
+    //     .then(r => r.json())
+    //     .then(console.log())
+    //     // this.setState({tags:""})
+    // }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        fetch("http://")
+        .then(r => r.json())
+        .then(console.log())
+        
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            value: e.target.value
+        })
+    }
+
+    render() {
         return(
             <div>
-                <h2>Total Searches</h2>
-                <h2>Highest Valued Job</h2>
-                <h2>Average Job</h2>
+                <h2>Your Search Tag:</h2>
+                    <div>
+                        <h4>Tag</h4>
+                        <h4>Tag</h4>
+                        <h4>Tag</h4>
+                        <h4>Tag</h4>
+                    </div>
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Create New Tag: 
+                            <input type="text"  
+                                   placeholder="your new tag" 
+                                   value={this.state.value} 
+                                   onChange={this.handleChange} 
+                            />       
+                        </label>
+                    </form>
+                </div>
+
+                <button>Create</button>
+                <h2>Total No of Job Listings Saved:</h2>
                 <hr/>
                 <h3>Your Account:</h3>
                 <button>Edit</button>

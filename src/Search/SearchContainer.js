@@ -12,7 +12,7 @@ class SearchContainer extends React.Component {
                 minSalary: "",
                 distance: "",
                 where: "", 
-                minSalary: "",
+        
                
             },
             staticDetails: {

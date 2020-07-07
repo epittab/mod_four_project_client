@@ -3,6 +3,8 @@ import React from 'react'
 
 class Result extends React.Component {
 
+    state = {apiDetails: {}}
+
     handleSave = () => {
 
         fetch(`http://localhost:3001/listing`, {
