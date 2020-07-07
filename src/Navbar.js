@@ -19,6 +19,7 @@ class Navbar extends React.Component {
                 </ul>
                 <div className='Navbar-avatar'>
                     <Link to='/user'>avatar</Link>
+                    { this.props.isLogged ? 'logout' : null}
                 </div>
             </div>
         )
