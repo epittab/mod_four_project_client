@@ -4,3 +4,8 @@ div.ResearchDetailContainer{
     align-items: center;
 
 }
+
+div.Research-toggle-button{
+    display: flex;
+    align-items: center;
+}
