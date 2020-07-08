@@ -11,12 +11,7 @@ class SearchContainer extends React.Component {
                 query: "",
                 minSalary: "",
                 distance: "",
-<<<<<<< HEAD
                 where: ""
-=======
-                where: "", 
-        
->>>>>>> f01b3001ea4dbc2edf70254bbaffc7afb2c39928
                
             },
             staticDetails: {
@@ -63,7 +58,7 @@ class SearchContainer extends React.Component {
 
 
     getSearchResults() {
-        fetch(`https://api.adzuna.com/v1/api/jobs/${this.state.staticDetails.country}/search/1?app_id=${this.state.apiDetails.id}&app_key=${this.state.apiDetails.key}&results_per_page=${this.state.staticDetails.resultsCount}&what=${this.state.queryDetails.query}&where=${this.state.queryDetails.where}&distance=${this.state.queryDetails.distance}&sort_by=${this.state.staticDetails.sortBy}&salary_min=${this.state.queryDetails.minSalary}&full_time=1`, {
+        fetch(`https://api.adzuna.com/v1/api/jobs/${this.state.staticDetails.country}/search/1?app_id=${this.state.apiDetails.id}&app_key=${this.state.apiDetails.key}&results_per_page=${this.state.staticDetails.resultsCount}&what=${this.state.queryDetails.query}&where=${this.state.queryDetails.where}&distance=${this.state.queryDetails.distance}&sort_by=${this.state.staticDetails.sortBy}&full_time=1`, {
             method: 'GET'
         })
         .then( r => r.json() )
