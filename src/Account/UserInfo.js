@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Tag from './Tag'
 
 
+import Tag from './Tag'
+
 class UserInfo extends Component {
 
     constructor() {
@@ -37,7 +39,8 @@ class UserInfo extends Component {
             method: "POST",
             header: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Authorization': localStorage.getItem('token')
             },
             body: JSON.stringify({
                 tag_name: value
@@ -63,7 +66,11 @@ class UserInfo extends Component {
             <div>
                 <h2>Your Search Tag:</h2>
                     <div>
+<<<<<<< HEAD
                         {/* {this.state.tags.map(tag => <Tag key={tag.id} tagObj={tag}/>)}  */}
+=======
+                        {this.state.tags.map(tag => < Tag key={tag.id} tag={tag}/>)}
+>>>>>>> dc9f8ba1af26aa71932cfe04cf97852f27ad0fec
                     </div>
                 <div>
                     <form onSubmit={this.handleSubmit}>

@@ -9,16 +9,30 @@ class JobListingShowPage extends React.Component {
          //on the back end find and return data for listing_id == 4
     }
     render(){
+        let listingInfo = this.props.listings.find( (l) => l.id == this.props.id)
+        console.log(listingInfo)
         return(
             <div className='JobListingDetail'>
-                {/* Title: {this.props.listing.job_title}
-                City: {this.props.listing.city}
-                Company: {this.props.listing.company}
-                Work hours: {this.props.listing.contract_time}
-                Posted on: {this.props.listing.created}
-                latitude: {this.props.listing.latitude}
-                longitude: {this.props.listing.longitude}
-                description: {this.props.listing.description} */}
+                
+               { listingInfo ? 
+                (
+                
+                    <div>
+                        Title: {listingInfo.job_title}
+                        City: {listingInfo.city}
+                        Company: {listingInfo.company}
+                        Work hours: {listingInfo.contract_time}
+                        Posted on: {listingInfo.created}
+                        latitude: {listingInfo.latitude}
+                        longitude: {listingInfo.longitude}
+                        description: {listingInfo.description} 
+                    </div>
+
+                )
+                    : null
+            }
+             
+                
                 {/* ps.l<a href = {this.proisting.job_url}><img src={extLink} style={{height: '1rem', width: '1rem'}} alt="external link icon" /></a> */}
                 
                 google maps api
