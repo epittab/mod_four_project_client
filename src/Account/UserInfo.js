@@ -66,11 +66,7 @@ class UserInfo extends Component {
             <div>
                 <h2>Your Search Tag:</h2>
                     <div>
-<<<<<<< HEAD
-                        {/* {this.state.tags.map(tag => <Tag key={tag.id} tagObj={tag}/>)}  */}
-=======
                         {this.state.tags.map(tag => < Tag key={tag.id} tag={tag}/>)}
->>>>>>> dc9f8ba1af26aa71932cfe04cf97852f27ad0fec
                     </div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
