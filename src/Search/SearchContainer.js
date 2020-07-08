@@ -11,12 +11,7 @@ class SearchContainer extends React.Component {
                 query: "",
                 minSalary: "",
                 distance: "",
-<<<<<<< HEAD
                 where: ""
-=======
-                where: "", 
-        
->>>>>>> f01b3001ea4dbc2edf70254bbaffc7afb2c39928
                
             },
             staticDetails: {
