@@ -11,34 +11,41 @@ class UserInfo extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     fetch("http://localhost:3001/")
-    //     .then(r => r.json())
-    //     .then(console.log())
-    //     // this.setState({tags:""})
-    // }
-
+    componentDidMount(id) {
+        fetch("http://localhost:3001/", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': "application/json",
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(r => r.json())
+        .then(data => {
+            this.setState({tags: data})
+            console.log(data)
+        })
+    }
+ 
     handleSubmit = (e) => {
         e.preventDefault()
         let {value, user_id} = this.state
-
+ 
         fetch("http://localhost:3001/tag", {
             method: "POST",
             header: {
-                'Content-Type':'application/json',
+                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                value: value,
-                // user_id: user_id,
+                tag_name: value
             })
         })
         .then(r => r.json())
         .then(data => {
-            this.setState({value:""})
-            
+            this.setState({value: ""})
+            return console.log(data)
         })
-        
     }
 
     handleChange = (e) => {
