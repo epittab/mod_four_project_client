@@ -7,11 +7,12 @@ class UserInfo extends Component {
         this.state = {
             tags: [],
             value: "",
+            user_id: 0
         }
     }
 
     // componentDidMount() {
-    //     fetch("")
+    //     fetch("http://localhost:3001/")
     //     .then(r => r.json())
     //     .then(console.log())
     //     // this.setState({tags:""})
@@ -19,9 +20,24 @@ class UserInfo extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch("http://")
+        let {value, user_id} = this.state
+
+        fetch("http://localhost:3001/tag", {
+            method: "POST",
+            header: {
+                'Content-Type':'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                value: value,
+                // user_id: user_id,
+            })
+        })
         .then(r => r.json())
-        .then(console.log())
+        .then(data => {
+            this.setState({value:""})
+            
+        }
         
     }
 
