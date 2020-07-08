@@ -7,28 +7,10 @@ class UserInfo extends Component {
     constructor() {
         super()
         this.state = {
-            tags: [],
             tag: "",
-            user_id: 0
         }
     }
 
-    componentDidMount() {
-        fetch("http://localhost:3001/tags", {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': "application/json",
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-        .then(r => r.json())
-        .then(tag_array => {
-            this.setState({tags: tag_array})
-            console.log(tag_array)
-        })
-    }
- 
     handleSubmit = (e) => {
         e.preventDefault()
         let {tag} = this.state
@@ -45,11 +27,12 @@ class UserInfo extends Component {
         })
         .then(r => r.json())
         .then(data => {
-            let currentTags = [...this.state.tags, data.tag]
-            this.setState({tags: currentTags, tag: ""})
+            this.props.addTag(data)
+            this.setState({tag: ""})
             return console.log(data)
         })
     }
+
 
     handleChange = (e) => {
         let {name, value} = e.target
@@ -58,34 +41,9 @@ class UserInfo extends Component {
         })
     }
 
-    handleClickDelete = (tag) => {
-        console.log("delete")
-        console.log(tag)
-        const filteredTags = this.state.tags.filter(t => t.id !== tag.id )
-       //another way
-        // const filteredTags = this.state.tags.slice();
-        //     if (filteredTags.indexOf(tag) > -1) {
-        //         filteredTags.splice(filteredTags.indexOf(tag), 1);
-        //         this.setState({tags: filteredTags})
-        //     }   
-
-        fetch(`http://localhost:3001/tags/${tag.id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': localStorage.getItem('token')
-            }
-        })
-        .then(r => r.json())
-        .then(data => {
-            this.setState({tags: filteredTags})
-            console.log(data)
-        })
-      }
 
     render() {
-        const tags = this.state.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.handleClickDelete}/>)
+        const tags = this.props.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.props.handleClickDelete}/>)
         
         return(
             <div>
