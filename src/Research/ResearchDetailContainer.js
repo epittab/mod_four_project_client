@@ -1,8 +1,11 @@
 import React from 'react'
 
+import {Switch, Route} from 'react-router-dom'
+
 import JobListingDetail from './JobListingDetail'
 
 import './ResearchDetailContainer.css'
+import JobListingShowPage from './JobListingShowPage'
 
 class ResearchDetailContainer extends React.Component {
 
@@ -31,11 +34,22 @@ class ResearchDetailContainer extends React.Component {
 
     render(){
         return(
-            <div className='ResearchDetailContainer'>
-                
-                { this.state.listings.map( jl => <JobListingDetail key={jl.id} listing={jl}/> )}
-                
-            </div>
+
+            <Switch>
+
+                <Route exact path='/research' render= {() => {
+                    return (<div className='ResearchDetailContainer'>
+                                { this.state.listings.map( jl => <JobListingDetail key={jl.id} listing={jl}/> )}
+                            </div>)
+                }} />
+
+            <Route exact path='/research/:id' render = { (props) =>  < JobListingShowPage listings={this.state.listings} id={props.match.params.id}/>} />
+
+
+            </Switch>
+
+
+            
         )
     }
 }
