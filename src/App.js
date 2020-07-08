@@ -60,8 +60,10 @@ class App extends React.Component {
                
           <Route exact path='/search' render={ () => <Search/>} />
         
-          <Route exact path='/research' render={ () =>   < Research /> } />
-   
+          <Route path='/research' render={ () =>   < Research /> } />
+          
+          {/* <Route exact path='/research/:id' render={ () =>   < JobListingShowPage /> } /> */}
+            
           <Route path='/' render={() =>      <div>
                                         404: Page not found 
                                             </div> } />
