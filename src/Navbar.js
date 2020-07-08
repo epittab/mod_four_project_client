@@ -7,6 +7,12 @@ import './Navbar.css'
 
 class Navbar extends React.Component {
 
+    logout = () => {
+        console.log('logging out')
+        localStorage.removeItem('token')
+        this.props.removeUser()
+    }
+
     render(){
         return(
             <div className ='Navbar'>
@@ -19,6 +25,7 @@ class Navbar extends React.Component {
                 </ul>
                 <div className='Navbar-avatar'>
                     <Link to='/user'>avatar</Link>
+                    { this.props.isLogged ? <button onClick={this.logout}>Logout</button> : null}
                 </div>
             </div>
         )

@@ -45,7 +45,11 @@ class LoginContainer extends React.Component {
         .then(data => {
            
             this.setState({form: {}})
-            localStorage.setItem('token', data.token)
+            if (data.token) {
+                localStorage.setItem('token', data.token)
+                this.props.setUser(data)
+                return data.status
+            }
             return console.log(data)
         })
     }
@@ -70,6 +74,7 @@ class LoginContainer extends React.Component {
             // store the token locally on the user's (customer/client) browser
             if (data.token) {
                 localStorage.setItem('token', data.token)
+                this.props.setUser(data)
                 return data.status
             }
             return console.log(data)
