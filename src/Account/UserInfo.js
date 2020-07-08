@@ -35,8 +35,7 @@ class UserInfo extends Component {
  
         fetch("http://localhost:3001/tags", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
+            headers: {'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
@@ -46,7 +45,8 @@ class UserInfo extends Component {
         })
         .then(r => r.json())
         .then(data => {
-            this.setState({tag: ""})
+            let currentTags = [...this.state.tags, data.tag]
+            this.setState({tags: currentTags, tag: ""})
             return console.log(data)
         })
     }
@@ -58,13 +58,40 @@ class UserInfo extends Component {
         })
     }
 
+    handleClickDelete = (tag) => {
+        console.log("delete")
+        console.log(tag)
+        const filteredTags = this.state.tags.filter(t => t.id !== tag.id )
+       //another way
+        // const filteredTags = this.state.tags.slice();
+        //     if (filteredTags.indexOf(tag) > -1) {
+        //         filteredTags.splice(filteredTags.indexOf(tag), 1);
+        //         this.setState({tags: filteredTags})
+        //     }   
+
+        fetch(`http://localhost:3001/tags/${tag.id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': localStorage.getItem('token')
+            }
+        })
+        .then(r => r.json())
+        .then(data => {
+            this.setState({tags: filteredTags})
+            console.log(data)
+        })
+      }
 
     render() {
+        const tags = this.state.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.handleClickDelete}/>)
+        
         return(
             <div>
-                <h2>Your Search Tag:</h2>
+                <h2>Your Search Tags</h2>
                     <div>
-                        {/* {this.state.tags.map(tag => < Tag key={tag.id} tag={tag}/>)} */}
+                        {tags}
                     </div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
@@ -81,12 +108,12 @@ class UserInfo extends Component {
                     </form>
                 </div>
 
-                
                 <h2>Total No of Job Listings Saved:</h2>
                 <hr/>
             </div>
         )
     }
+
 }
 
 export default UserInfo
