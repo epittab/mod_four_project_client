@@ -1,5 +1,5 @@
 import React from 'react'
-
+import MapContainer from './MapContainer'
 
 import './ShowPage.css'
 
@@ -25,15 +25,17 @@ class JobListingShowPage extends React.Component {
                         <div className='JobTitle'><h4>State:</h4> {listingInfo.state}</div>
                         <div className='JobTitle'><h4>Work hours:</h4> {listingInfo.contract_time}</div>
                         <div className='JobTitle'><h4>Posted on:</h4> {listingInfo.created_at}</div>
-                        <div className='JobTitle'><h4>Latitude:</h4> {listingInfo.latitude}</div>
-                        <div className='JobTitle'><h4>Longitude:</h4>{listingInfo.longitude}</div>
+                        {/* <div className='JobTitle'><h4>Latitude:</h4> {listingInfo.latitude}</div>
+                        <div className='JobTitle'><h4>Longitude:</h4>{listingInfo.longitude}</div> */}
                         <div className='JobTitle'><h4>Description:</h4> {listingInfo.snippet}</div> 
                     </div>
 
                     
                     <div> google maps api </div><br></br>
 
-                   <div><img src={'https://miro.medium.com/max/4064/1*qYUvh-EtES8dtgKiBRiLsA.png'} style={{height: '500px', width: '900px'}} alt="boohoo"/></div>;
+                        <div style={{height: '500px', width: '500px'}}>
+                            <MapContainer style={{height: '500px', width: '500px'}} location={{lat: listingInfo.latitude, lng: listingInfo.longitude}} />
+                        </div>
                     </div>              
                 )
                     : null
