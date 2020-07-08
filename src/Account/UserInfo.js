@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
 import Tag from './Tag'
+
 
 class UserInfo extends Component {
 
@@ -8,13 +8,13 @@ class UserInfo extends Component {
         super()
         this.state = {
             tags: [],
-            value: "",
+            tag: "",
             user_id: 0
         }
     }
 
-    componentDidMount(id) {
-        fetch("http://localhost:3001/", {
+    componentDidMount() {
+        fetch("http://localhost:3001/tags", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -23,46 +23,48 @@ class UserInfo extends Component {
             }
         })
         .then(r => r.json())
-        .then(data => {
-            this.setState({tags: data})
-            console.log(data)
+        .then(tag_array => {
+            this.setState({tags: tag_array})
+            console.log(tag_array)
         })
     }
  
     handleSubmit = (e) => {
         e.preventDefault()
-        let {value, user_id} = this.state
+        let {tag} = this.state
  
-        fetch("http://localhost:3001/tag", {
+        fetch("http://localhost:3001/tags", {
             method: "POST",
-            header: {
+            headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
             body: JSON.stringify({
-                tag_name: value
+                tag_name: tag
             })
         })
         .then(r => r.json())
         .then(data => {
-            this.setState({value: ""})
+            this.setState({tag: ""})
             return console.log(data)
         })
     }
 
     handleChange = (e) => {
+        let {name, value} = e.target
         this.setState({
-            value: e.target.value
+            [name]: value
         })
     }
+
 
     render() {
         return(
             <div>
                 <h2>Your Search Tag:</h2>
                     <div>
-                        {this.state.tags.map(tag => < Tag key={tag.id} tag={tag}/>)}
+                        {/* {this.state.tags.map(tag => < Tag key={tag.id} tag={tag}/>)} */}
                     </div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
@@ -70,19 +72,18 @@ class UserInfo extends Component {
                             Create New Tag: 
                             <input type="text"  
                                    placeholder="your new tag" 
-                                   value={this.state.value} 
+                                   name="tag"
+                                   value={this.state.tag} 
                                    onChange={this.handleChange} 
                             />       
                         </label>
+                        <button type="submit">Create Tag</button>
                     </form>
                 </div>
 
-                <button>Create</button>
+                
                 <h2>Total No of Job Listings Saved:</h2>
                 <hr/>
-                <h3>Your Account:</h3>
-                <button>Edit</button>
-                <button>Delete</button>
             </div>
         )
     }

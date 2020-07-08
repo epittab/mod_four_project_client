@@ -5,7 +5,7 @@ class Tag extends React.Component {
     render(){
         return(
             <div>
-                Tag
+                {this.props.tag.name}
             </div>
         )
     }
