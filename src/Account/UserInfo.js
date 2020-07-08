@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Tag from './Tag'
+
 
 class UserInfo extends Component {
 
@@ -49,20 +51,19 @@ class UserInfo extends Component {
     }
 
     handleChange = (e) => {
+        let {name, value} = e.target
         this.setState({
-            value: e.target.value
+            [name]: value
         })
     }
+
 
     render() {
         return(
             <div>
                 <h2>Your Search Tag:</h2>
                     <div>
-                        <h4>Tag</h4>
-                        <h4>Tag</h4>
-                        <h4>Tag</h4>
-                        <h4>Tag</h4>
+                        {/* {this.state.tags.map(tag => <Tag key={tag.id} tagObj={tag}/>)}  */}
                     </div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
@@ -70,19 +71,18 @@ class UserInfo extends Component {
                             Create New Tag: 
                             <input type="text"  
                                    placeholder="your new tag" 
-                                   value={this.state.value} 
+                                   name="name"
+                                   value={this.state.value || ""} 
                                    onChange={this.handleChange} 
                             />       
                         </label>
+                        <button type="submit">Create</button>
                     </form>
                 </div>
 
-                <button>Create</button>
+                
                 <h2>Total No of Job Listings Saved:</h2>
                 <hr/>
-                <h3>Your Account:</h3>
-                <button>Edit</button>
-                <button>Delete</button>
             </div>
         )
     }
