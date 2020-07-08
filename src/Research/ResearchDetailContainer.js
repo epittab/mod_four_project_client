@@ -33,7 +33,7 @@ class ResearchDetailContainer extends React.Component {
         return(
             <div className='ResearchDetailContainer'>
                 
-                { this.state.listings.map( jl => <JobListingDetail key={jl.id} listing={jl}/>)}
+                { this.state.listings.map( jl => <JobListingDetail key={jl.id} listing={jl}/> )}
                 
             </div>
         )
