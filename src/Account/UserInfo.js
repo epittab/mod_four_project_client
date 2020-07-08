@@ -45,7 +45,8 @@ class UserInfo extends Component {
         })
         .then(r => r.json())
         .then(data => {
-            this.setState({tag: ""})
+            let currentTags = [...this.state.tags, data.tag]
+            this.setState({tags: currentTags, tag: ""})
             return console.log(data)
         })
     }
@@ -57,31 +58,31 @@ class UserInfo extends Component {
         })
     }
 
-    // handleClickDelete = (tag) => {
-    //     console.log("delete")
-    //     const filteredTags = this.state.tags.filter(t => t.id !== tag.id )
-    //    //another way
-    //     // const filteredTags = this.state.tags.slice();
-    //     //     if (filteredTags.indexOf(tag) > -1) {
-    //     //         filteredTags.splice(filteredTags.indexOf(tag), 1);
-    //     //         this.setState({tags: filteredTags})
-    //     //     }   
+    handleClickDelete = (tag) => {
+        console.log("delete")
+        console.log(tag)
+        const filteredTags = this.state.tags.filter(t => t.id !== tag.id )
+       //another way
+        // const filteredTags = this.state.tags.slice();
+        //     if (filteredTags.indexOf(tag) > -1) {
+        //         filteredTags.splice(filteredTags.indexOf(tag), 1);
+        //         this.setState({tags: filteredTags})
+        //     }   
 
-    //     fetch("http://localhost:3001/tags", {
-    //         method: "DELETE",
-    //         headers: {'Content-Type': 'application/json',
-    //             'Accept': 'application/json',
-    //             'Authorization': localStorage.getItem('token')
-    //         },
-    //         body: JSON.stringify({
-    //             tag_id: tag.id
-    //         })
-    //     })
-    //     .then(r => r.json())
-    //     .then(data => {
-    //         this.setState({tags: filteredTags})
-    //     })
-    //   }
+        fetch(`http://localhost:3001/tags/${tag.id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': localStorage.getItem('token')
+            }
+        })
+        .then(r => r.json())
+        .then(data => {
+            this.setState({tags: filteredTags})
+            console.log(data)
+        })
+      }
 
     render() {
         const tags = this.state.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.handleClickDelete}/>)
