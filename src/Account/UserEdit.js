@@ -20,7 +20,7 @@ class UserEdit extends Component {
                             type="text"
                             name="first_name"
                             value = {this.state.value || ""}
-                            onchange = {this.handleChange}
+                            onChange = {this.handleChange}
                         />
                     </label>
                     <label>
@@ -29,7 +29,7 @@ class UserEdit extends Component {
                             type="text"
                             name="last_name"
                             value = {this.state.value || ""}
-                            onchange = {this.handleChange}
+                            onChange = {this.handleChange}
                         />
                     </label>
                     <label>
@@ -38,7 +38,7 @@ class UserEdit extends Component {
                             type="text"
                             name="username"
                             value = {this.state.value || ""}
-                            onchange = {this.handleChange}
+                            onChange = {this.handleChange}
                         />
                     </label>
                     <label>
@@ -47,7 +47,7 @@ class UserEdit extends Component {
                             type="text"
                             name="password"
                             value = {this.state.value || ""}
-                            onchange = {this.handleChange}
+                            onChange = {this.handleChange}
                         />
                     </label>
                     <label>
@@ -56,7 +56,7 @@ class UserEdit extends Component {
                             type="number"
                             name="zipcode"
                             value = {this.state.value || ""}
-                            onchange = {this.handleChange}
+                            onChange = {this.handleChange}
                         />
                     </label>
                     <button type="submit">Save</button>
