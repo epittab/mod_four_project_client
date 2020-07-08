@@ -9,6 +9,7 @@ import Home from './Home/Home'
 import UserInfoContainer from './Account/UserInfoContainer'
 import Search from './Search/SearchContainer'
 import Research from './Research/ResearchDetailContainer'
+import JobListingShowPage from './Research/JobListingShowPage';
 
 class App extends React.Component {
 
@@ -61,6 +62,8 @@ class App extends React.Component {
           <Route exact path='/search' render={ () => <Search/>} />
         
           <Route exact path='/research' render={ () =>   < Research /> } />
+         
+      <Route exact path='/research/:id' render={ () =>   < JobListingShowPage /> } />
    
           <Route path='/' render={() =>      <div>
                                         404: Page not found 

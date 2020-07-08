@@ -37,7 +37,7 @@ class UserInfo extends Component {
         .then(data => {
             this.setState({value:""})
             
-        }
+        })
         
     }
 
