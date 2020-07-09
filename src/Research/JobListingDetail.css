@@ -1,5 +1,5 @@
 div.JobListingDetail {
-    height: 4rem;
+    min-height: 5rem;
     width: 80vw;
 
     border-radius: 8px;
@@ -11,4 +11,29 @@ div.JobListingDetail {
 
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+div.JobListing-subtitle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40vw;
+    margin: auto;
+}
+
+div.tag-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+div.tag{
+    height: 1.5rem; 
+    max-width: 12%;
+    line-height: 1.5rem;
+    border-radius: 3px;
+    color: white;
+    padding: 0 1rem 0 1rem; 
+    background-image: linear-gradient(to right, rgba(100, 70, 180, 1), rgb(27, 30, 211))
 }

@@ -30,7 +30,7 @@ export class MapContainer extends React.Component {
 
     render() {
       return (
-        <Map style={{height: '500px', width: '700px'}} google={this.props.google} zoom={14} 
+        <Map style={{height: '300px', width: '600px'}} google={this.props.google} zoom={14} 
         initialCenter={{ lat: this.props.location.lat, lng: this.props.location.lng }}>
    
           <Marker onClick={this.onMarkerClick}

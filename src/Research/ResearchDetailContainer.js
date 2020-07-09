@@ -6,10 +6,10 @@ import {
   } from 'recharts';
 
 import JobListingDetail from './JobListingDetail'
-
-import './ResearchDetailContainer.css'
 import JobListingShowPage from './JobListingShowPage'
 
+
+import './ResearchDetailContainer.css'
 
 
 class ResearchDetailContainer extends React.Component {
@@ -95,7 +95,7 @@ class ResearchDetailContainer extends React.Component {
                 <Route exact path='/research' render= {() => {
                     return (
 
-                        <div>
+                        <div className='ResearchDetailContainer'>
 
                             <div className='Research-toggle-button'>
                                 <div className={`toggle-button ${ this.state.showingGraph ? '' : 'active'}`} onClick={this.handleToggleGraph}>List</div>
@@ -106,7 +106,7 @@ class ResearchDetailContainer extends React.Component {
                             
                             <div className='ResearchDetailContainer'>
                                 <BarChart
-                                    width={500}
+                                    width={800}
                                     height={300}
                                     data={listingsData}
                                     margin={{
@@ -123,7 +123,7 @@ class ResearchDetailContainer extends React.Component {
                                 </BarChart>
 
                                 <BarChart
-                                    width={500}
+                                    width={800}
                                     height={300}
                                     data={tagsData}
                                     margin={{
@@ -143,8 +143,8 @@ class ResearchDetailContainer extends React.Component {
                             
                             :
 
-                             <div className='ResearchDetailContainer'>
-                                { this.state.listings.map( jl => <JobListingDetail key={jl.id} listing={jl}/> )}
+                             <div className='ResearchDetailContainer-wrapper'>
+                                { this.state.listings.map( jl => <JobListingDetail key={jl.id} tags={this.props.tags} listing={jl}/> )}
                             </div>
                             }
                         
