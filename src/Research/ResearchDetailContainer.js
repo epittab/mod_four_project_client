@@ -62,10 +62,32 @@ class ResearchDetailContainer extends React.Component {
         return list_array
     }
     
+    cleanTagData() {
+        let tempObj = {}
+        this.state.listings.forEach(l => {
+            let textArray = l.snippet.toLowerCase().split(" ")
+            this.props.tags.forEach(tag => {
+                let filteredArray = textArray.filter(text => tag.tag_name.toLowerCase() === text )
+                if (tempObj[tag.tag_name]){
+                    tempObj[tag.tag_name] += filteredArray.length
+                } else {
+                tempObj[tag.tag_name] = filteredArray.length
+                }
+            })
+        })
+
+         let tag_array = Object.entries(tempObj).map( t => {
+            return {tag: t[0], count: t[1] }
+        } )
+        return tag_array
+    }
 
     render(){
+
         let listingsData = this.cleanListingsData()
-        console.log(listingsData)
+        let tagsData = this.cleanTagData()
+
+        console.log(tagsData)
         return(
 
             <Switch>
@@ -99,6 +121,24 @@ class ResearchDetailContainer extends React.Component {
                                     <Bar dataKey="count" fill="#8884d8" />
                                     
                                 </BarChart>
+
+                                <BarChart
+                                    width={500}
+                                    height={300}
+                                    data={tagsData}
+                                    margin={{
+                                    top: 5, right: 30, left: 20, bottom: 5,
+                                    }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="tag" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Bar dataKey="count" fill="#8884d8" />
+                                    
+                                </BarChart>
+
                             </div>
                             
                             :
@@ -107,6 +147,7 @@ class ResearchDetailContainer extends React.Component {
                                 { this.state.listings.map( jl => <JobListingDetail key={jl.id} listing={jl}/> )}
                             </div>
                             }
+                        
                         
                         
                         </div>

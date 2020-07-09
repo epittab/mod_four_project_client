@@ -19,7 +19,7 @@ class App extends React.Component {
       tags: []
     }
   }
-
+  
   setUser = (user) => {
     this.setState({currentUser: user})
   }
@@ -116,9 +116,9 @@ class App extends React.Component {
                                     addTag={this.addTag}
                                     />} />
                
-          <Route exact path='/search' render={ () => <Search/>} />
+          <Route exact path='/search' render={ () => <Search tags={this.state.tags}/>} />
         
-          <Route path='/research' render={ () =>   < Research /> } />
+          <Route path='/research' render={ () =>   < Research tags={this.state.tags} /> } />
           
           {/* <Route exact path='/research/:id' render={ () =>   < JobListingShowPage /> } /> */}
             
