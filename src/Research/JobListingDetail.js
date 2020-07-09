@@ -54,7 +54,7 @@ class JobListingDetail extends React.Component {
                 
                 <a href = {this.props.listing.job_url}><img src={extLink} style={{height: '1rem', width: '1rem'}} alt="external link icon" /></a>
               
-                <Route exact path='research/:id' render={() => <JobListingShowPage listing={this.props.listing}/>} />
+                <Route exact path='research/:id' render={() => <JobListingShowPage key = {this.props.listings.id} listing={this.props.listing}/>} />
 
                 <hr/>
 

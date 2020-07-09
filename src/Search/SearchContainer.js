@@ -15,7 +15,7 @@ class SearchContainer extends React.Component {
                
             },
             staticDetails: {
-                resultsCount: "20",
+                resultsCount: "50",
                 sortBy: "salary",
                 country: 'us'
             },
@@ -70,11 +70,15 @@ class SearchContainer extends React.Component {
     
     render(){
         return(
-            <div className="searchContainer">
-                <SearchForm handleChange={this.handleChange} 
-                    handleSubmit={this.handleSubmit}
-                    queryDetails={this.state.queryDetails}/>
-                <SearchResults results={this.state.results}/>
+            <div className='searchContainer-wrapper'>
+
+                <div className="searchContainer">
+                    <SearchForm handleChange={this.handleChange} 
+                        handleSubmit={this.handleSubmit}
+                        queryDetails={this.state.queryDetails}/>
+                    <SearchResults results={this.state.results}/>
+                </div>
+
             </div>
         )
     }

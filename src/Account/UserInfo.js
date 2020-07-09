@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Tag from './Tag'
 
+import './UserInfo.css'
 
 class UserInfo extends Component {
 
@@ -46,12 +47,12 @@ class UserInfo extends Component {
         const tags = this.props.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.props.handleClickDelete}/>)
         
         return(
-            <div>
+            <div className='UserInfo-wrapper'>
                 <h2>Your Search Tags</h2>
-                    <div>
-                        {tags}
-                    </div>
-                <div>
+                <div className='tag-wrapper-cont'>
+                    {tags}
+                </div>
+                <div className='tag-form'>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             Create New Tag: 
@@ -66,7 +67,7 @@ class UserInfo extends Component {
                     </form>
                 </div>
 
-                <h2>Total No of Job Listings Saved:</h2>
+                {/* <h2>Total No of Job Listings Saved:</h2> */}
                 <hr/>
             </div>
         )

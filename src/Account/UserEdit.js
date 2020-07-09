@@ -23,6 +23,7 @@ class UserEdit extends Component {
                             onChange = {this.handleChange}
                         />
                     </label>
+                    <br/>
                     <label>
                         Last Name
                         <input
@@ -32,6 +33,7 @@ class UserEdit extends Component {
                             onChange = {this.handleChange}
                         />
                     </label>
+                    <br/>
                     <label>
                         Username
                         <input
@@ -41,6 +43,7 @@ class UserEdit extends Component {
                             onChange = {this.handleChange}
                         />
                     </label>
+                    <br/>
                     <label>
                         Password
                         <input
@@ -50,6 +53,7 @@ class UserEdit extends Component {
                             onChange = {this.handleChange}
                         />
                     </label>
+                    <br/>
                     <label>
                         Zipcode
                         <input
@@ -59,7 +63,8 @@ class UserEdit extends Component {
                             onChange = {this.handleChange}
                         />
                     </label>
-                    <button type="submit">Save</button>
+                    <br/>
+                    <button className='UA-save-btn' type="submit">Save</button>
                 </form>
             </div>
         )

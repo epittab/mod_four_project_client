@@ -3,20 +3,29 @@ import React from 'react'
 class SearchForm extends React.Component {
     render(){
         return(
-            <div>
+            <div className='search-form-wrapper'>
                 <form onSubmit={this.props.handleSubmit}>
-                    < label > Job Title: 
-                        <input name='query' value={this.props.queryDetails.query || ""} onChange={this.props.handleChange} placeholder = 'Software Engineer' required />
-                    </label>
-                    < label > Minimum Salary: 
-                        <input name='minSalary' value={this.props.queryDetails.minSalary || ""} onChange={this.props.handleChange} type='number' placeholder = '50000'  />
-                    </label>
-                    < label > Zip Code: 
-                        <input name='where' value={this.props.queryDetails.where || ""} onChange={this.props.handleChange} type='number' placeholder = '20001' required />
-                    </label>
-                    < label > Distance (Radius in miles): 
-                        <input name='distance' value={this.props.queryDetails.distance || ""} onChange={this.props.handleChange} type='number' placeholder = '50' required />
-                    </label>
+                    <div className='form-row'>
+                         < label > Job Title: 
+                            <input name='query' value={this.props.queryDetails.query || ""} onChange={this.props.handleChange} placeholder = 'Software Engineer' required />
+                        </label>
+                        < label > Minimum Salary: 
+                            <input name='minSalary' value={this.props.queryDetails.minSalary || ""} onChange={this.props.handleChange} type='number' placeholder = '50000'  />
+                        </label>
+                    </div>
+                   <div className='form-row'>
+                        < label > Zip Code: 
+                            <input name='where' value={this.props.queryDetails.where || ""} onChange={this.props.handleChange} type='number' placeholder = '20001' required />
+                        </label>
+                        < label > Distance (Radius in miles): 
+                            <input name='distance' value={this.props.queryDetails.distance || ""} onChange={this.props.handleChange} type='number' placeholder = '50' required />
+                        </label>
+
+                   </div>
+
+                   
+                  
+                    <br/>
                     <button type="submit">Search</button>
                 </form>
             </div>

@@ -9,11 +9,16 @@ class UserInfoContainer extends React.Component {
     render(){
         return(
             <div className="user-info-container">
-                <UserInfo tags={this.props.tags} 
-                          handleClickDelete={this.props.handleClickDelete}
-                          addTag={this.props.addTag}
-                          /> 
-                <UserAccount />
+                <div className="user-info-wrapper">
+                    <UserInfo tags={this.props.tags} 
+                                            handleClickDelete={this.props.handleClickDelete}
+                                            addTag={this.props.addTag}
+                                            /> 
+                    <UserAccount />
+
+
+                </div>
+                
             </div>
         )
     }

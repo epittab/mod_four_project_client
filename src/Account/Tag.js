@@ -7,9 +7,15 @@ class Tag extends React.Component {
     render(){
         
         return(
-            <div className='Tag'>
-                {this.props.tag.tag_name}
-                <button onClick={() => this.props.handleClickDelete(this.props.tag)}>X</button>      
+            <div className='user-tag-wrapper'>
+
+                <div className='user-tag'>
+                    {this.props.tag.tag_name}
+                </div>
+                <button className='user-tag-btn' onClick={() => this.props.handleClickDelete(this.props.tag)}>x</button>      
+                
+
+
             </div>
         )
     }

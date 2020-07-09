@@ -28,7 +28,7 @@ class ResearchDetailContainer extends React.Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': "application/json",
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': localStorage.getItem('token')
             }
         })
         .then(r => r.json())
@@ -42,7 +42,7 @@ class ResearchDetailContainer extends React.Component {
         this.setState({showingGraph: !this.state.showingGraph})
     }
 
-    cleanListingsData() {
+    cleanListingsData = () => {
         let listingObj = {}
 
         this.state.listings.forEach(l => {
@@ -62,7 +62,7 @@ class ResearchDetailContainer extends React.Component {
         return list_array
     }
     
-    cleanTagData() {
+    cleanTagData = () => {
         let tempObj = {}
         this.state.listings.forEach(l => {
             let textArray = l.snippet.toLowerCase().split(" ")
@@ -83,9 +83,10 @@ class ResearchDetailContainer extends React.Component {
     }
 
     render(){
-
-        let listingsData = this.cleanListingsData()
-        let tagsData = this.cleanTagData()
+        let listingsData = []
+        let tagsData = []
+        this.state.listings.length > 0 ? (listingsData = this.cleanListingsData()) : (listingsData = [])
+        this.props.tags.length > 0 ? (tagsData = this.cleanTagData()) : (tagsData = [])
 
         // console.log(tagsData)
         return(
@@ -104,7 +105,7 @@ class ResearchDetailContainer extends React.Component {
                         
                             {this.state.showingGraph ? 
                             
-                            <div className='ResearchDetailContainer'>
+                            <div className='ResearchDetailContainer-wrapper'>
                                 <BarChart
                                     width={800}
                                     height={300}

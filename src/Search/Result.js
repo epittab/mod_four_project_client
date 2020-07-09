@@ -1,6 +1,4 @@
 import React from 'react'
-
-
 class Result extends React.Component {
 
     state = {apiDetails: {}}
@@ -31,7 +29,7 @@ class Result extends React.Component {
                <div className="resultinfo"><h3>Company Name:  </h3> <span>{company.display_name}</span></div>
                <div className="resultinfo"><h3>Salary:  </h3> <span>{salary_is_predicted}</span></div>
                {/* Location */}
-               <button onClick={this.handleSave}>Save</button>
+               <button className='UA-save-btn' onClick={this.handleSave}>Save</button>
             </div>
 
         )
