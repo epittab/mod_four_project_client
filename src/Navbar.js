@@ -24,7 +24,7 @@ class Navbar extends React.Component {
                     <li className='Navbar-menu-item'><Link to='/search'>Search</Link></li>
                 </ul>
                 <div className='Navbar-avatar'>
-                    <Link to='/user'>avatar</Link>
+                     { this.props.isLogged ? <p>Hello, <Link to='/user'>{this.props.firstName.name}</Link> </p> : ' '}
                     { this.props.isLogged ? <button onClick={this.logout}>Logout</button> : null}
                 </div>
             </div>

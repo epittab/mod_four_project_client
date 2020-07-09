@@ -11,7 +11,7 @@ class JobListingShowPage extends React.Component {
     }
     render(){
         let listingInfo = this.props.listings.find( (l) => l.id == this.props.id)
-        console.log(listingInfo)
+        // console.log(listingInfo)
         return(
             <div className='JobInfo-container'>
                 

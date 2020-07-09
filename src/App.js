@@ -48,7 +48,7 @@ class App extends React.Component {
       if (data.user_id) {
         this.setState({currentUser: data})
       }
-      console.log(data);
+      // console.log(data);
     })
   }
 
@@ -95,7 +95,7 @@ class App extends React.Component {
     .then(r => r.json())
     .then(data => {
         this.setState({tags: filteredTags})
-        console.log(data)
+        // console.log(data)
     })
   }
 
@@ -103,7 +103,7 @@ class App extends React.Component {
   render() {
   return (
     <div className="App">
-      <Navbar isLogged={!!this.state.currentUser} removeUser={this.removeUser}/>
+      <Navbar isLogged={!!this.state.currentUser} removeUser={this.removeUser} firstName={this.state.currentUser}/>
       {
         this.state.currentUser ?
         < Switch >

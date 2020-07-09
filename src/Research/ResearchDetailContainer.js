@@ -34,7 +34,7 @@ class ResearchDetailContainer extends React.Component {
         .then(r => r.json())
         .then( data => {
             this.setState({listings: data})
-            console.log(data)
+            // console.log(data)
         })
     }
 
@@ -87,7 +87,7 @@ class ResearchDetailContainer extends React.Component {
         let listingsData = this.cleanListingsData()
         let tagsData = this.cleanTagData()
 
-        console.log(tagsData)
+        // console.log(tagsData)
         return(
 
             <Switch>

@@ -38,7 +38,7 @@ class JobListingDetail extends React.Component {
 
         let tagData = this.cleanTagData()
         let filteredTags = tagData.filter( tagCount => tagCount.count > 0 )
-        console.log(filteredTags)
+        // console.log(filteredTags)
       
         return(
             <div className='JobListingDetail' >
