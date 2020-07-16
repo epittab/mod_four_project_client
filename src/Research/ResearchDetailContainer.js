@@ -46,19 +46,15 @@ class ResearchDetailContainer extends React.Component {
         let listingObj = {}
 
         this.state.listings.forEach(l => {
-
             if (listingObj[l.city])
                { listingObj[l.city] += 1}
             else
                { listingObj[l.city] = 1}
-
-
         })
 
         let list_array = Object.entries(listingObj).map( l => {
             return {city: l[0], count: l[1] }
-        } )
-
+        })
         return list_array
     }
     
@@ -75,7 +71,6 @@ class ResearchDetailContainer extends React.Component {
                 }
             })
         })
-
          let tag_array = Object.entries(tempObj).map( t => {
             return {tag: t[0], count: t[1] }
         } )
@@ -90,12 +85,9 @@ class ResearchDetailContainer extends React.Component {
 
         // console.log(tagsData)
         return(
-
             <Switch>
-
                 <Route exact path='/research' render= {() => {
                     return (
-
                         <div className='ResearchDetailContainer'>
 
                             <div className='Research-toggle-button'>
@@ -137,35 +129,18 @@ class ResearchDetailContainer extends React.Component {
                                     <Tooltip />
                                     <Legend />
                                     <Bar dataKey="count" fill="#8884d8" />
-                                    
                                 </BarChart>
-
                             </div>
-                            
                             :
-
                              <div className='ResearchDetailContainer-wrapper'>
                                 { this.state.listings.map( jl => <JobListingDetail key={jl.id} tags={this.props.tags} listing={jl}/> )}
                             </div>
                             }
-                        
-                        
-                        
                         </div>
-                        
-                    
-                           
-                            
-                            )
-                }} />
-
+                             )
+                 }}/>
             <Route exact path='/research/:id' render = { (props) =>  < JobListingShowPage listings={this.state.listings} id={props.match.params.id}/>} />
-
-
             </Switch>
-
-
-            
         )
     }
 }

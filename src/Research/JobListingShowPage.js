@@ -10,11 +10,10 @@ class JobListingShowPage extends React.Component {
          //on the back end find and return data for listing_id == 4
     }
     render(){
-        let listingInfo = this.props.listings.find( (l) => l.id == this.props.id)
+        let listingInfo = this.props.listings.find( (l) => l.id === this.props.id)
         // console.log(listingInfo)
         return(
-            <div className='JobInfo-container'>
-                
+            <div className='JobInfo-container'>                
                { listingInfo ? 
                 (
                     <div className='JobInfo'>
@@ -30,14 +29,11 @@ class JobListingShowPage extends React.Component {
 
                         <div className='MapContainer-wrapper' style={{height: '300px', width: '600px'}} >
                             <MapContainer location={{lat: listingInfo.latitude, lng: listingInfo.longitude}} />
-                        </div>
-                        
+                        </div>  
                     </div>              
                 )
                     : null
             }
-                    
-                
             </div>
         )
     }

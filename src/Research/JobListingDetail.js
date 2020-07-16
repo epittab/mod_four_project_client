@@ -8,8 +8,6 @@ import JobListingShowPage from './JobListingShowPage'
 
 class JobListingDetail extends React.Component {
 
-    
-
     cleanTagData() {
         let tempObj = {}
     
@@ -23,7 +21,6 @@ class JobListingDetail extends React.Component {
             }
         })
         // {agile: 1, finance: 0, work: 1}
-
          let tag_array = Object.entries(tempObj).map( t => {
              // [[agile, 1], [finance, 0], [work, 1]]
              return {tag: t[0], count: t[1]}
@@ -32,10 +29,7 @@ class JobListingDetail extends React.Component {
         return tag_array
     }
 
-
-
     render(){
-
         let tagData = this.cleanTagData()
         let filteredTags = tagData.filter( tagCount => tagCount.count > 0 )
         // console.log(filteredTags)
@@ -59,9 +53,7 @@ class JobListingDetail extends React.Component {
                 <hr/>
 
                 <div className='tag-wrapper'>
-
                     {filteredTags.map( t => <div className="tag"> <strong>{t.tag}</strong>: {t.count}</div>)}
-                    
                 </div>
             </div>
         )

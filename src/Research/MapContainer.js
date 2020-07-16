@@ -28,11 +28,10 @@ export class MapContainer extends React.Component {
     }
   };
 
-    render() {
-      return (
+  render() {
+    return (
         <Map style={{height: '300px', width: '600px'}} google={this.props.google} zoom={14} 
-        initialCenter={{ lat: this.props.location.lat, lng: this.props.location.lng }}>
-   
+         initialCenter={{ lat: this.props.location.lat, lng: this.props.location.lng }}>
           <Marker onClick={this.onMarkerClick}
                   name={'Current location'} />
    
@@ -42,7 +41,6 @@ export class MapContainer extends React.Component {
               </div>
           </InfoWindow>
         </Map>
-      
       );     
     }
   }

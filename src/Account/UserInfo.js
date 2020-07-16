@@ -66,7 +66,6 @@ class UserInfo extends Component {
                         <button type="submit">Create Tag</button>
                     </form>
                 </div>
-
                 {/* <h2>Total No of Job Listings Saved:</h2> */}
                 <hr/>
             </div>

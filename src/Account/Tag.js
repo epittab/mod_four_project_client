@@ -8,14 +8,10 @@ class Tag extends React.Component {
         
         return(
             <div className='user-tag-wrapper'>
-
                 <div className='user-tag'>
                     {this.props.tag.tag_name}
                 </div>
                 <button className='user-tag-btn' onClick={() => this.props.handleClickDelete(this.props.tag)}>x</button>      
-                
-
-
             </div>
         )
     }
