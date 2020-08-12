@@ -57,6 +57,8 @@ class ResearchDetailContainer extends React.Component {
         })
         return list_array
     }
+
+    // testing
     
     cleanTagData = () => {
         let tempObj = {}
