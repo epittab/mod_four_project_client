@@ -2,6 +2,7 @@ import React from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import './SearchContainer.css'
+import { Redirect } from 'react-router-dom'
 
 class SearchContainer extends React.Component {
     constructor(){
@@ -69,6 +70,7 @@ class SearchContainer extends React.Component {
     }
     
     render(){
+       
         return(
             <div className='searchContainer-wrapper'>
 

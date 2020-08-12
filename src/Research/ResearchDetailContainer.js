@@ -47,6 +47,8 @@ class ResearchDetailContainer extends React.Component {
 
         this.state.listings.forEach(l => {
 
+            //  {"Loundon County: 5, Washington DC: 10"}
+
             if (listingObj[l.city])
                { listingObj[l.city] += 1}
             else
@@ -145,7 +147,7 @@ class ResearchDetailContainer extends React.Component {
                             :
 
                              <div className='ResearchDetailContainer-wrapper'>
-                                { this.state.listings.map( jl => <JobListingDetail key={jl.id} tags={this.props.tags} listing={jl}/> )}
+                                { this.state.listings.length > 0 ? this.state.listings.map( jl => <JobListingDetail key={jl.id} tags={this.props.tags} listing={jl}/> ) : <p>Empty</p>}
                             </div>
                             }
                         
