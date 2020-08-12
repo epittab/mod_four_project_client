@@ -97,7 +97,6 @@ class LoginContainer extends React.Component {
                         : < Login handleChange={this.handleChange} 
                             handleSubmit={this.handleLoginSubmit}
                             form={this.state.form}/> }
-
             </div>
         )
 

@@ -15,10 +15,7 @@ class UserInfoContainer extends React.Component {
                                             addTag={this.props.addTag}
                                             /> 
                     <UserAccount />
-
-
                 </div>
-                
             </div>
         )
     }
