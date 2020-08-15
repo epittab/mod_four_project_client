@@ -30,8 +30,12 @@ class JobListingDetail extends React.Component {
     }
 
     render(){
-        let tagData = this.cleanTagData()
-        let filteredTags = tagData.filter( tagCount => tagCount.count > 0 )
+        let tagData;
+        let filteredTags;
+        if (this.props.tags) {
+            tagData = this.cleanTagData()
+            filteredTags = tagData.filter( tagCount => tagCount.count > 0 )
+        }
         // console.log(filteredTags)
       
         return(
