@@ -3,6 +3,7 @@ div.ResearchDetailContainer{
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    height: 90vh;
 }
 
 div.ResearchDetailContainer-wrapper{

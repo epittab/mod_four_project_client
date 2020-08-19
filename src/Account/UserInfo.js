@@ -44,7 +44,10 @@ class UserInfo extends Component {
 
 
     render() {
-        const tags = this.props.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.props.handleClickDelete}/>)
+        let tags;
+        if (this.props.tags.length > 0 ) {
+            tags = this.props.tags.map(tag => <Tag key={tag.id} tag={tag} handleClickDelete={this.props.handleClickDelete}/>)
+        } 
         
         return(
             <div className='UserInfo-wrapper'>
