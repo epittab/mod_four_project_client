@@ -23,6 +23,11 @@ class ResearchDetailContainer extends React.Component {
     }
 
     componentDidMount () {
+        this.props.getTags();
+        this.getListings();
+    }
+    
+    getListings(){
         fetch(`http://localhost:3001/listing`, {
             method: 'GET',
             headers: {
@@ -36,6 +41,7 @@ class ResearchDetailContainer extends React.Component {
             this.setState({listings: data})
             // console.log(data)
         })
+        
     }
 
     handleToggleGraph = () => {
@@ -80,8 +86,8 @@ class ResearchDetailContainer extends React.Component {
     }
 
     render(){
-        let listingsData = []
-        let tagsData = []
+        let listingsData = [];
+        let tagsData = [];
         this.state.listings.length > 0 ? (listingsData = this.cleanListingsData()) : (listingsData = [])
         this.props.tags.length > 0 ? (tagsData = this.cleanTagData()) : (tagsData = [])
 

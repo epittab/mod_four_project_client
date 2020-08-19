@@ -41,6 +41,11 @@ class SearchContainer extends React.Component {
 
     componentDidMount(){
         //api key and id
+        this.props.getTags();
+        this.getApiData();
+    }
+    
+    getApiData() {
         fetch(`http://localhost:3001/search`, {
             method: 'GET',
             headers: {
@@ -52,8 +57,9 @@ class SearchContainer extends React.Component {
         .then( r => r.json())
         .then(data => {
             this.setState({apiDetails: data.api_data})
-            console.log(data)
+            
         })
+
     }
 
 

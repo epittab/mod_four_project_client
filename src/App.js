@@ -74,16 +74,9 @@ class App extends React.Component {
   }
 
   handleClickDelete = (tag) => {
-    console.log("delete")
-    console.log(tag)
+   
     const filteredTags = this.state.tags.filter(t => t.id !== tag.id )
-   //another way
-    // const filteredTags = this.state.tags.slice();
-    //     if (filteredTags.indexOf(tag) > -1) {
-    //         filteredTags.splice(filteredTags.indexOf(tag), 1);
-    //         this.setState({tags: filteredTags})
-    //     }   
-
+   
     fetch(`http://localhost:3001/tags/${tag.id}`, {
         method: "DELETE",
         headers: {
@@ -95,7 +88,7 @@ class App extends React.Component {
     .then(r => r.json())
     .then(data => {
         this.setState({tags: filteredTags})
-        // console.log(data)
+        console.log(data)
     })
   }
 
@@ -114,11 +107,14 @@ class App extends React.Component {
                                     tags={this.state.tags} 
                                     handleClickDelete={this.handleClickDelete}
                                     addTag={this.addTag}
+                                    getTags={this.getTags}
                                     />} />
                
-          <Route exact path='/search' render={ () => <Search tags={this.state.tags}/>} />
+          <Route exact path='/search' render={ () => <Search  tags={this.state.tags} 
+                                                              getTags={this.getTags}/>} />
         
-          <Route path='/research' render={ () =>   < Research tags={this.state.tags} /> } />
+          <Route path='/research' render={ () =>   < Research tags={this.state.tags} 
+                                                              getTags={this.getTags}/> } />
           
           {/* <Route exact path='/research/:id' render={ () =>   < JobListingShowPage /> } /> */}
             

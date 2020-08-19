@@ -6,6 +6,11 @@ import UserAccount from './UserAccount'
 import './UserInfoContainer.css'
 
 class UserInfoContainer extends React.Component {
+
+    componentDidMount(){
+        this.props.getTags()
+    }
+    
     render(){
         return(
             <div className="user-info-container">
