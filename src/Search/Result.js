@@ -27,7 +27,6 @@ class Result extends React.Component {
             <div className="result">
               <div className="resultinfo"><h3>Position:  </h3> <span>{title}</span></div> 
                <div className="resultinfo"><h3>Company Name:  </h3> <span>{company.display_name}</span></div>
-               <div className="resultinfo"><h3>Salary:  </h3> <span>{salary_is_predicted}</span></div>
                {/* Location */}
                <button className='UA-save-btn' onClick={this.handleSave}>Save</button>
             </div>

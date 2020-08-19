@@ -40,3 +40,7 @@ div.tag{
     padding: 0 1rem 0 1rem; 
     background-image: linear-gradient(to right, rgba(100, 70, 180, 1), rgb(27, 30, 211))
 }
+
+.job-title-link{
+    text-decoration: none;
+}

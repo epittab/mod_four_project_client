@@ -10,7 +10,6 @@ class SearchContainer extends React.Component {
         this.state = {
             queryDetails: {
                 query: "",
-                minSalary: "",
                 distance: "",
                 where: ""
                

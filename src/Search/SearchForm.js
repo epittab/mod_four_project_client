@@ -9,21 +9,17 @@ class SearchForm extends React.Component {
                          < label > Job Title: 
                             <input name='query' value={this.props.queryDetails.query || ""} onChange={this.props.handleChange} placeholder = 'Software Engineer' required />
                         </label>
-                        < label > Minimum Salary: 
+                        {/* < label > Minimum Salary: 
                             <input name='minSalary' value={this.props.queryDetails.minSalary || ""} onChange={this.props.handleChange} type='number' placeholder = '50000'  />
-                        </label>
-                    </div>
-                   <div className='form-row'>
+                        </label> */}
                         < label > Zip Code: 
                             <input name='where' value={this.props.queryDetails.where || ""} onChange={this.props.handleChange} type='number' placeholder = '20001' required />
                         </label>
                         < label > Distance (Radius in miles): 
                             <input name='distance' value={this.props.queryDetails.distance || ""} onChange={this.props.handleChange} type='number' placeholder = '50' required />
                         </label>
-
-                   </div>
-
-                   
+                    </div>
+     
                   
                     <br/>
                     <button type="submit">Search</button>

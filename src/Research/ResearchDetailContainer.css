@@ -34,12 +34,12 @@ div.toggle-button{
 }
 
 div.toggle-button.active {
-    background-color: rgba(130, 25, 100, 1);
+    background-color: rgba(100, 20, 90, 1);
     font-weight: bold;
 }
 
 div.toggle-button:hover {
     cursor: pointer;
-    background-color: rgba(100, 20, 90, 1);
+    background-color: rgba(150, 25, 100, 1);
     
 }

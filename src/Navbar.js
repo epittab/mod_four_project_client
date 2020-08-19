@@ -24,8 +24,8 @@ class Navbar extends React.Component {
                     <li className='Navbar-menu-item'><Link to='/search'>Search</Link></li>
                 </ul>
                 <div className='Navbar-avatar'>
-                     { this.props.isLogged ? <p>Hello, <Link to='/user'>{this.props.firstName.name}</Link> </p> : ' '}
-                    { this.props.isLogged ? <button onClick={this.logout}>Logout</button> : null}
+                     { this.props.isLogged ? <p className='greet-user'>Hello, <Link to='/user'>{this.props.firstName.name}</Link> </p> : ' '}
+                    { this.props.isLogged ? <button className='logout-button' onClick={this.logout}>Logout</button> : null}
                 </div>
             </div>
         )

@@ -40,7 +40,7 @@ class JobListingDetail extends React.Component {
       
         return(
             <div className='JobListingDetail' >
-                <Link to ={`research/${this.props.listing.id}`} >Title: {this.props.listing.job_title} </Link>
+                <strong style={{color: 'blue'}}>Title:</strong><Link to ={`research/${this.props.listing.id}`} className='job-title-link' > {this.props.listing.job_title} </Link>
                 <div className='JobListing-subtitle-container'>
                     <div className='JobListing-subtitle'>
                         <strong style={{color: 'blue'}}>Company:</strong> {this.props.listing.company}

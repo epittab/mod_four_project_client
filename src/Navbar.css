@@ -25,9 +25,42 @@ div.Navbar-logo{
 .Navbar-menu-item {
     color: rgba(50, 100, 150, 1);
     list-style: none;
+}
+
+li.Navbar-menu-item a{
     cursor: pointer;
+    text-decoration: none;
 }
 
 .Navbar-avatar {
     margin-right: 2rem;
+    display: flex;
+   
+    align-items: center;
+}
+
+p.greet-user a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button.logout-button {
+    margin-left: 2rem;
+    border: none;
+    border-radius: 5px;
+    height: 1.8rem;
+    color: white;
+    background-color: rgba(180, 40, 140, 1);
+    cursor: pointer;
+}
+
+button.logout-button.active {
+    background-color: rgba(100, 20, 90, 1);
+    font-weight: bold;
+}
+
+button.logout-button:hover {
+    cursor: pointer;
+    background-color: rgba(150, 25, 100, 1);
+    
 }
